@@ -3,13 +3,15 @@ import { OPENAI_API_KEY } from '@env';
 
 const OpenAIService = {
   getResponse: async (prompt) => {
-    const url = 'https://api.openai.com/v1/engines/davinci-codex/completions'; // or 'text-davinci-003' for GPT-3.5
+    const url = 'https://api.openai.com/v1/chat/completions'; // or 'text-davinci-003' for GPT-3.5
 
     try {
-      const response = await axios.post(
+      console.log('Prompt:', prompt);
+      const resposta = await axios.post(
         url,
         {
-          prompt,
+          model: 'gpt-3.5-turbo',
+          messages: [{ role: 'user', content: prompt}],
           max_tokens: 150,
           n: 1,
           stop: null,
@@ -21,9 +23,9 @@ const OpenAIService = {
             'Authorization': `Bearer ${OPENAI_API_KEY}`,
           },
         }
-      );
+      )
+      return resposta.data.choices[0].message.content;
 
-      return response.data.choices[0].text;
     } catch (error) {
       console.error('Error fetching data from OpenAI API:', error);
       throw error;

@@ -5,8 +5,8 @@
  * @format
  */
 
-import React from 'react';
-import type {PropsWithChildren} from 'react';
+import React from "react";
+import type {PropsWithChildren} from "react";
 import {
   Button,
   SafeAreaView,
@@ -16,23 +16,17 @@ import {
   Text,
   useColorScheme,
   View,
-} from 'react-native';
+} from "react-native";
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-import ChatComponent from './components/ChatComponent';
+import {Colors, Header} from "react-native/Libraries/NewAppScreen";
+import ChatComponent from "./components/ChatComponent";
 
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
 
 function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
+  const isDarkMode = useColorScheme() === "dark";
   return (
     <View style={styles.sectionContainer}>
       <Text
@@ -58,7 +52,7 @@ function Section({children, title}: SectionProps): React.JSX.Element {
 }
 
 function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
+  const isDarkMode = useColorScheme() === "dark";
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
@@ -67,7 +61,7 @@ function App(): React.JSX.Element {
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+        barStyle={isDarkMode ? "light-content" : "dark-content"}
         backgroundColor={backgroundStyle.backgroundColor}
       />
       <ScrollView
@@ -79,12 +73,8 @@ function App(): React.JSX.Element {
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
           <Section title="Hello, Tom!">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits. Welcome!
+            Fala com teu chat LGTV ai, bomzao!
           </Section>
-          <Button
-            title="Press me"
-            onPress={() => console.log('Button pressed')}></Button>
           <ChatComponent />
         </View>
       </ScrollView>
@@ -99,15 +89,15 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 24,
-    fontWeight: '600',
+    fontWeight: "600",
   },
   sectionDescription: {
     marginTop: 8,
     fontSize: 18,
-    fontWeight: '400',
+    fontWeight: "400",
   },
   highlight: {
-    fontWeight: '700',
+    fontWeight: "700",
   },
 });
 

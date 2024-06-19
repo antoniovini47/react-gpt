@@ -7,13 +7,12 @@ const ChatComponent = () => {
   const [response, setResponse] = useState("");
 
   const handleSend = async () => {
-    try {
-      const result = await OpenAIService.getResponse(input);
+    console.log("CC - Sending input:", input);
+    setResponse("Aguardando resposta...");
+    await OpenAIService.getResponse(input).then(result => {
+      console.log("json result", JSON.stringify(result));
       setResponse(result);
-    } catch (error) {
-      console.error(error);
-      setResponse("Error occurred while fetching response.");
-    }
+    });
   };
 
   return (
