@@ -19,7 +19,9 @@ import {
 } from "react-native";
 
 import {Colors, Header} from "react-native/Libraries/NewAppScreen";
-import ChatComponent from "./components/ChatComponent";
+import ChatComponent from "./components/ChatGPTComponent";
+import ChatImageComponent from "./components/ChatGPTImageComponent";
+import ChatGeminiComponent from "./components/ChatGeminiComponent";
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -60,21 +62,23 @@ function App(): React.JSX.Element {
 
   return (
     <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? "light-content" : "dark-content"}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <Header />
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Section title="Hello, Tom!">
-            Fala com teu chat LGTV ai, bomzao!
-          </Section>
+          <Section title="GEMINI" />
+          <Section title="Chat Gemini">Fale com o Gemini</Section>
+          <ChatGeminiComponent />
+
+          {/*  */}
+          <Section title="" />
+          <Section title="GPT">Conecte-se com o GPT</Section>
+          <Section title="ImaGPT!">Envie imagens para o GPT!</Section>
+          <ChatImageComponent />
+          <Section title="GPTexto!">Fale com o GPT!</Section>
           <ChatComponent />
         </View>
       </ScrollView>

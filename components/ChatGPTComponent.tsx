@@ -4,7 +4,7 @@ import OpenAIService from "../OpenAIService";
 
 const ChatComponent = () => {
   const [input, setInput] = useState("");
-  const [response, setResponse] = useState("");
+  const [response, setResponse] = useState("Aguardando envio de mensagem...");
 
   const handleSend = async () => {
     console.log("CC - Sending input:", input);
