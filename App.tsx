@@ -21,8 +21,6 @@ import {
 import {Colors, Header} from "react-native/Libraries/NewAppScreen";
 import ChatComponent from "./components/ChatGPTComponent";
 import ChatImageComponent from "./components/ChatGPTImageComponent";
-import ChatGeminiComponent from "./components/ChatGeminiComponent";
-import GeminiImageComponent from "./components/GeminiImageComponent";
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -70,19 +68,12 @@ function App(): React.JSX.Element {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Section title="GEMINI" />
-          <Section title="ImageGemini">Contador de kcal e proteinas</Section>
-          <GeminiImageComponent />
-          <Section title="ChatGemini">Fale com o Gemini</Section>
-          <ChatGeminiComponent />
-
-          {/*  */}
           <Section title="" />
           <Section title="GPT">Conecte-se com o GPT</Section>
-          <Section title="ImaGPT!">Envie imagens para o GPT!</Section>
-          <ChatImageComponent />
           <Section title="GPTexto!">Fale com o GPT!</Section>
           <ChatComponent />
+          <Section title="ImaGPT!">Envie imagens para o GPT!</Section>
+          <ChatImageComponent />
         </View>
       </ScrollView>
     </SafeAreaView>
